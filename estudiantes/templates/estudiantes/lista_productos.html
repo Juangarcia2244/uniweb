@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de productos</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    margin:0;
+    text-align:center;
+    background:#f1e3c5;
+}
+
+.header{
+    background:#f5ca91;
+    padding:20px;
+    text-align:left;
+}
+
+
+.contenido{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+
+.card{
+    background:white;
+    padding:20px;
+    width:250px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.card h3{
+    margin:10px 0;
+}
+
+.precio{
+    color:green;
+    font-weight:bold;
+    font-size:18px;
+}
+
+
+.boton{
+    background:#f5ca91;
+    border:none;
+    padding:15px 40px;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+    text-decoration:none;
+    color:black;
+    display:inline-block;
+}
+
+.boton:hover{
+    background:#eeae65;
+}
+
+.btn-eliminar{
+    background:#ee4e4e;
+    padding:8px 15px;
+    border-radius:6px;
+    color:white;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:10px;
+}
+
+.btn-eliminar:hover{
+    background:#f5b2b2;
+}
+
+</style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Lista de Productos</h1>
+    </div>
+
+    <br><br>
+
+    <div class="contenido">
+        {% if productos %}
+            {% for producto in productos %}
+                <div class="card">
+                    <h3>{{producto.nombre}}</h3>
+                    <p class="precio">${{producto.precio}}</p>
+
+                    <a href="{% url 'eliminar_producto' producto.id %}" class="btn-eliminar"
+                       onclick="return confirm('¿Seguro que deseas eliminar {{ producto.nombre }}?')">
+                        Eliminar
+                    </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay productos registrados</p>
+        {% endif %}
+    </div>
+
+    <br><br><br>
+
+   
+    <a href="{% url 'registrar_producto' %}" class="boton">
+        Registrar un nuevo producto
+    </a>
+
+    <br><br><br><br>
+
+    <a href="{% url 'home' %}" class="boton">
+        Regresar a home
+    </a>
+
+</body>
+</html>

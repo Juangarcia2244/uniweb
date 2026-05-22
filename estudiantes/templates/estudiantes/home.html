@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestión de Productos</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f2f2f2;
+}
+
+.header{
+    background:#f5ca91;
+    padding:20px;
+    text-align:center;
+}
+
+.contenido{
+    margin-top:50px;
+    text-align:center;
+}
+
+.botones{
+    margin-top:30px;
+}
+
+.boton{
+    display:inline-block;
+    background:#f5ca91;
+    padding:15px 30px;
+    font-size:16px;
+    border-radius:8px;
+    text-decoration:none;
+    color:black;
+    margin:10px;
+}
+
+.boton:hover{
+    background:#eeae65;
+}
+
+.footer{
+    background:#f5ca91;
+    padding:15px;
+    margin-top:80px;
+    text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Gestión de Productos</h2>
+    <p>Ximena - Juan Esteban</p>
+</div>
+
+<div class="contenido">
+    <h3>Bienvenidos al sistema de gestión de productos</h3>
+
+    <div class="botones">
+        <a href="{% url 'registrar_producto' %}" class="boton">
+            Registrar Productos
+        </a>
+
+        <a href="{% url 'lista_productos' %}" class="boton">
+            Lista de productos
+        </a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Programación web</p>
+    <p>UNIMINUTO</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar producto</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f1e3c5;
+}
+
+.header{
+    background:#f5ca91;
+    padding:20px;
+    text-align:left;
+}
+
+.contenido{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:60vh;
+}
+
+.form-card{
+    background:white;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    width:400px;
+    text-align: center;
+}
+
+.form-card input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+.btn{
+    width:100%;
+    background:#f5ca91;
+    border:none;
+    padding:12px;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#eeae65;
+}
+
+.boton{
+    display:block;
+    text-align:center;
+    margin:20px auto;
+    width:230px;
+    background:#f5ca91;
+    padding:12px;
+    border-radius:8px;
+    text-decoration:none;
+    color:black;
+}
+
+.boton:hover{
+    background:#eeae65;
+}
+
+</style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Registrar Producto</h1>
+    </div>
+
+    <div class="contenido">
+
+        <form method="post" class="form-card">
+            {% csrf_token %}
+
+            {% if error %}
+                <p style="color:red; font-weight:bold; margin-bottom:15px;">
+                    {{ error }}
+                </p>
+            {% endif %}
+
+            <label>Nombre:</label>
+            <input type="text" name="nombre" required>
+
+            <label>Precio:</label>
+            <input type="number" name="precio" step="1" required>
+
+            <br><br>
+            <button class="btn" type="submit">Guardar</button>
+        </form>
+    </div>
+
+    <a href="{% url 'home' %}" class="boton">
+        Regresar a home
+    </a>
+    
+</body>
+</html>
