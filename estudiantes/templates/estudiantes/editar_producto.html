@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Registrar producto</title>
+    <title>Editar producto</title>
 <style>
 
 body {
@@ -49,16 +49,17 @@ body {
 
 .btn {
     width: 100%;
-    background: #f5ca91;
+    background: #4e9dee;
     border: none;
     padding: 12px;
     font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
+    color: white;
 }
 
 .btn:hover {
-    background: #eeae65;
+    background: #2e7ecf;
 }
 
 .boton {
@@ -90,7 +91,7 @@ body {
 <body>
 
     <div class="header">
-        <h1>Registrar Producto</h1>
+        <h1>Editar Producto</h1>
     </div>
 
     <div class="contenido">
@@ -105,17 +106,18 @@ body {
                 {% endif %}
 
                 <label>Nombre:</label>
-                <input type="text" name="nombre" required>
+                <input type="text" name="nombre" value="{{ producto.nombre }}" required>
 
                 <label>Precio:</label>
-                <input type="number" name="precio" step="0.01" min="0.01" required>
+                <input type="number" name="precio" step="0.01" min="0.01"
+                       value="{{ producto.precio }}" required>
 
                 <br><br>
-                <button class="btn" type="submit">Guardar</button>
+                <button class="btn" type="submit">Guardar cambios</button>
             </form>
 
-            <a href="{% url 'home' %}" class="boton">
-                Regresar a home
+            <a href="{% url 'lista_productos' %}" class="boton">
+                Cancelar
             </a>
         </div>
     </div>
